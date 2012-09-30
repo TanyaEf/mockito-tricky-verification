@@ -15,7 +15,8 @@ public class UserRegistrationService {
         if(newUser.hasEmailDomainBanned()) {
             throw new SpamProtectionException("Email address domain is blacklisted");
         }
-        usersRepository.add(newUser);
+        // missing call of usersRepository.add()
+        // usersRepository.add(newUser);
     }
 
     public static class SpamProtectionException extends RuntimeException{

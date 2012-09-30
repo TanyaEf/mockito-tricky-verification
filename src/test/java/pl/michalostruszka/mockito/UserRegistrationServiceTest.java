@@ -26,14 +26,4 @@ public class UserRegistrationServiceTest {
         verify(usersRepository).add(newUser);
     }
 
-    @Test(expected = UserRegistrationService.SpamProtectionException.class)
-    public void shouldNotRegisterUserIfEmailIsBlacklisted() throws Exception {
-        User newUser = new User("John Doe", "user@spam.com");
-        try {
-            registrationService.registerUser(newUser);
-        } finally {
-            verifyZeroInteractions(usersRepository);
-        }
-    }
-
 }
